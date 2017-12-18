@@ -36,7 +36,7 @@ def fetch_and_handle():
         try:
             result = yield req_waiter.next()
         except Exception as e:
-            print("Error {} from {}".format(e, req_waiter.current_future))
+            print("Error {} for device {}".format(e, req_waiter.current_future))
         else:
             index = req_waiter.current_index
             comfort = result.body
@@ -80,3 +80,5 @@ def fetch_and_handle():
 if __name__ == '__main__':
     LOOP = ioloop.IOLoop.current()
     LOOP.run_sync(fetch_and_handle)
+
+# account test
