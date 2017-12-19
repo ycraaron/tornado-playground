@@ -1,24 +1,26 @@
 """
 server
 """
+from datetime import datetime
 from tornado import ioloop, gen, web
 from tornado.web import RequestHandler
-from datetime import datetime
-from timeit import default_timer as timer
 
 class MainHandler(RequestHandler):
     @gen.coroutine
     def get(self):
-        str_device_id = self.get_query_argument('device_id')
+        str_device_id = self.get_query_argument('param')
         str_datetime = datetime.now()
         print(str_datetime)
-        print("device_id", str_device_id)
+        print("param", str_device_id)
         print(type(str_device_id))
-        if(str_device_id == '5'):
+        if(str_device_id == '4'):
             print("before gen sleep")
-            yield gen.sleep(5)
-            self.set_status(400)
-            self.write('error')
+            yield gen.sleep(4)
+            # START
+            # uncomment following code to test http request failure
+            # self.set_status(400)
+            # self.write('error')
+            # END
         self.write(str(int(str_device_id)/10))
 
 def make_app():
