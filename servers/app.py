@@ -1,5 +1,6 @@
 """
 server
+Open terminal, run python3 app.py to start the server.
 """
 from datetime import datetime
 from tornado import ioloop, gen, web

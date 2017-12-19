@@ -1,4 +1,8 @@
-""" app """
+"""
+client
+After starting the server, run python wait_iterator_requester.py
+
+"""
 from tornado import ioloop, gen
 from tornado.httpclient import AsyncHTTPClient
 from client_utils.constants import URLS
